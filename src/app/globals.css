@@ -71,12 +71,27 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
-    Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial,
-    "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+    Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   position: relative;
   isolation: isolate;
   overflow-x: hidden;
+}
+
+/* Prevent layout from expanding the viewport width on small devices */
+html,
+body {
+  max-width: 100%;
+  overscroll-behavior-x: none;
+}
+
+/* On mobile, avoid unwanted zoom/scroll bounce exposing background */
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 /* Utilities */
@@ -112,29 +127,13 @@ body {
   height: 200vh;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(
-      70vw 45vh at 50% -5vh,
-      rgba(129, 140, 248, 0.18),
-      transparent 60%
-    ),
-    radial-gradient(
-      85vw 60vh at 50% 20vh,
-      rgba(236, 72, 153, 0.08),
-      transparent 55%
-    ),
-    radial-gradient(
-      100vw 70vh at 50% 95vh,
-      rgba(59, 130, 246, 0.12),
-      transparent 60%
-    );
+  background: radial-gradient(70vw 45vh at 50% -5vh, rgba(129, 140, 248, 0.18), transparent 60%),
+    radial-gradient(85vw 60vh at 50% 20vh, rgba(236, 72, 153, 0.08), transparent 55%),
+    radial-gradient(100vw 70vh at 50% 95vh, rgba(59, 130, 246, 0.12), transparent 60%);
 }
 
 .card-gradient {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.08),
-    rgba(255, 255, 255, 0.03)
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
 }
 
 .shadow-soft {
@@ -224,21 +223,9 @@ footer a:hover {
 
 /* Light theme background glow variant */
 .theme-light .hero-gradient::before {
-  background: radial-gradient(
-      70vw 45vh at 50% -5vh,
-      rgba(129, 140, 248, 0.12),
-      transparent 60%
-    ),
-    radial-gradient(
-      85vw 60vh at 50% 20vh,
-      rgba(236, 72, 153, 0.06),
-      transparent 55%
-    ),
-    radial-gradient(
-      100vw 70vh at 50% 95vh,
-      rgba(59, 130, 246, 0.08),
-      transparent 60%
-    );
+  background: radial-gradient(70vw 45vh at 50% -5vh, rgba(129, 140, 248, 0.12), transparent 60%),
+    radial-gradient(85vw 60vh at 50% 20vh, rgba(236, 72, 153, 0.06), transparent 55%),
+    radial-gradient(100vw 70vh at 50% 95vh, rgba(59, 130, 246, 0.08), transparent 60%);
 }
 
 /* Global, subtle page-wide glow so the transition to dark feels natural */
@@ -252,37 +239,13 @@ body::before {
   height: 220vh;
   pointer-events: none;
   z-index: -1;
-  background: radial-gradient(
-      80vw 55vh at 50% -10vh,
-      rgba(129, 140, 248, 0.1),
-      transparent 70%
-    ),
-    radial-gradient(
-      100vw 70vh at 50% 25vh,
-      rgba(236, 72, 153, 0.05),
-      transparent 65%
-    ),
-    radial-gradient(
-      120vw 85vh at 50% 120vh,
-      rgba(59, 130, 246, 0.08),
-      transparent 70%
-    );
+  background: radial-gradient(80vw 55vh at 50% -10vh, rgba(129, 140, 248, 0.1), transparent 70%),
+    radial-gradient(100vw 70vh at 50% 25vh, rgba(236, 72, 153, 0.05), transparent 65%),
+    radial-gradient(120vw 85vh at 50% 120vh, rgba(59, 130, 246, 0.08), transparent 70%);
 }
 
 .theme-light body::before {
-  background: radial-gradient(
-      80vw 55vh at 50% -10vh,
-      rgba(129, 140, 248, 0.08),
-      transparent 70%
-    ),
-    radial-gradient(
-      100vw 70vh at 50% 25vh,
-      rgba(236, 72, 153, 0.04),
-      transparent 65%
-    ),
-    radial-gradient(
-      120vw 85vh at 50% 120vh,
-      rgba(59, 130, 246, 0.06),
-      transparent 70%
-    );
+  background: radial-gradient(80vw 55vh at 50% -10vh, rgba(129, 140, 248, 0.08), transparent 70%),
+    radial-gradient(100vw 70vh at 50% 25vh, rgba(236, 72, 153, 0.04), transparent 65%),
+    radial-gradient(120vw 85vh at 50% 120vh, rgba(59, 130, 246, 0.06), transparent 70%);
 }
