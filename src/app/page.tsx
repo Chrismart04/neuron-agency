@@ -10,14 +10,14 @@ function Navbar() {
           <div className="text-[15px] font-semibold tracking-tight">
             Neuron Agency
           </div>
-          <div className="hidden md:flex gap-6 text-sm nav-link">
-            <a href="#about" className="hover:text-white">
+          <div className="hidden md:flex gap-6 text-sm">
+            <a href="#about" className="nav-link">
               Sobre Nosotros
             </a>
-            <a href="#services" className="hover:text-white">
+            <a href="#services" className="nav-link">
               Servicios
             </a>
-            <a href="#portfolio" className="hover:text-white">
+            <a href="#portfolio" className="nav-link">
               Portafolio
             </a>
           </div>
@@ -37,14 +37,14 @@ function Hero() {
   return (
     <section className="hero-gradient pt-16 pb-10">
       <div className="container-page px-4 text-center">
-        <div className="inline-block px-4 py-2 rounded-full text-xs bg-white/10 text-white/80 ring-1 ring-white/15">
+        <div className="inline-block px-4 py-2 rounded-full text-xs tag">
           Consultoría y Construcción de IA a la medida
         </div>
-        <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-tight tracking-tight">
+        <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-tight tracking-tight text-foreground">
           Aumenta tu productividad hasta{" "}
           <span className="text-indigo-300">40%</span> con IA a medida
         </h1>
-        <p className="mt-4 text-slate-300 max-w-[760px] mx-auto">
+        <p className="mt-4 muted max-w-[760px] mx-auto">
           Transformamos tu negocio con soluciones de inteligencia artificial
           personalizadas que automatizan procesos y optimizan resultados.
         </p>
@@ -105,7 +105,7 @@ function Benefits() {
     <section className="py-10">
       <div className="container-page px-4">
         <h2 className="text-center text-3xl font-bold">¿Por qué elegir IA?</h2>
-        <p className="text-center text-slate-300 mt-2">
+        <p className="text-center muted mt-2">
           Beneficios comprobados que transforman tu negocio
         </p>
         <div className="grid md:grid-cols-3 gap-5 mt-8">
@@ -118,9 +118,9 @@ function Benefits() {
               <div className="text-2xl font-bold text-indigo-300 mt-1">
                 {b.metric}
               </div>
-              <p className="text-sm text-slate-300 mt-2">{b.desc}</p>
-              <div className="mt-4 h-1 w-full bg-white/10 rounded-full">
-                <div className="h-1 bg-indigo-400/70 rounded-full w-2/3" />
+              <p className="text-sm muted mt-2">{b.desc}</p>
+              <div className="mt-4 h-1 w-full progress-track rounded-full">
+                <div className="h-1 progress-fill rounded-full w-2/3" />
               </div>
             </div>
           ))}
@@ -155,7 +155,7 @@ function Process() {
     <section className="py-10">
       <div className="container-page px-4">
         <h2 className="text-center text-3xl font-bold">Cómo trabajamos</h2>
-        <p className="text-center text-slate-300 mt-2">
+        <p className="text-center muted mt-2">
           Proceso simple y efectivo en 3 pasos
         </p>
         <div className="grid md:grid-cols-3 gap-5 mt-8">
@@ -165,8 +165,8 @@ function Process() {
                 {s.num}
               </div>
               <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
-              <p className="text-xs text-slate-400">{s.time}</p>
-              <p className="mt-2 text-slate-300 text-sm">{s.desc}</p>
+              <p className="text-xs muted">{s.time}</p>
+              <p className="mt-2 text-sm muted">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -188,13 +188,13 @@ function ClientsTestimonial() {
           ))}
         </div>
         <div className="glass-card p-6 mt-8">
-          <p className="italic text-slate-300">
+          <p className="italic text-foreground">
             “Llevaba años buscando un servicio ágil y que me entendiera para el
             diseño de página web. Profesional desde el inicio, y atención
             enfocada a los detalles más relevantes. En 5 días logré lo que
             busqué por 3 años.”
           </p>
-          <p className="mt-3 text-sm text-slate-400">
+          <p className="mt-3 text-sm text-foreground">
             — Luis Armando Bravo, Director
           </p>
         </div>
@@ -212,10 +212,10 @@ function CaseStudy() {
           <div className="mt-6 text-6xl font-extrabold text-indigo-300">
             300
           </div>
-          <p className="mt-2 text-slate-300">
+          <p className="mt-2 muted">
             clientes potenciales atendidos diariamente
           </p>
-          <p className="mt-4 text-slate-300 max-w-2xl mx-auto">
+          <p className="mt-4 muted max-w-2xl mx-auto">
             Integramos un chat de inteligencia artificial que resolvió el
             problema de ~300 clientes potenciales que quedaban sin atención
             diariamente. La solución redujo la carga de trabajo de los
@@ -239,7 +239,7 @@ function Footer() {
       <div className="container-page px-4 py-10 grid md:grid-cols-3 gap-6 text-sm">
         <div>
           <div className="text-lg font-semibold">Neuron Agency</div>
-          <p className="mt-2 text-slate-300">
+          <p className="mt-2 muted-strong">
             Transformamos negocios a través de soluciones digitales innovadoras
             y consultoría especializada en IA.
           </p>
@@ -251,19 +251,25 @@ function Footer() {
         </div>
         <div>
           <div className="font-semibold">Enlaces Rápidos</div>
-          <ul className="mt-2 space-y-2 text-slate-300">
+          <ul className="mt-2 space-y-2">
             <li>
-              <a href="#about" className="hover:text-white">
+              <a href="#about" className="muted-strong hover:text-foreground">
                 Sobre Nosotros
               </a>
             </li>
             <li>
-              <a href="#services" className="hover:text-white">
+              <a
+                href="#services"
+                className="muted-strong hover:text-foreground"
+              >
                 Servicios
               </a>
             </li>
             <li>
-              <a href="#portfolio" className="hover:text-white">
+              <a
+                href="#portfolio"
+                className="muted-strong hover:text-foreground"
+              >
                 Portafolio
               </a>
             </li>
@@ -272,13 +278,15 @@ function Footer() {
         <div id="contacto">
           <div className="font-semibold">Contacto</div>
           <ul className="mt-2 space-y-2 text-slate-300">
-            <li>contacto@jcagency.tech</li>
-            <li>León, Guanajuato, México</li>
+            <li className="muted-strong">contacto@jcagency.tech</li>
+            <li className="muted-strong">León, Guanajuato, México</li>
           </ul>
         </div>
       </div>
       <div className="text-center text-xs text-slate-400 pb-8">
-        © 2025 Neuron Agency. Todos los derechos reservados.
+        <span className="muted-strong">
+          © 2025 Neuron Agency. Todos los derechos reservados.
+        </span>
       </div>
     </footer>
   );
@@ -302,7 +310,7 @@ export default function Home() {
 
 function FloatingThemeButton() {
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-50 toggle-fab">
       <ThemeToggle />
     </div>
   );

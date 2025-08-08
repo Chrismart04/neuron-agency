@@ -18,6 +18,11 @@
   --cta-bg: #6366f1; /* indigo-500 */
   --cta-bg-hover: #818cf8; /* indigo-400 */
   --cta-text: #ffffff;
+  --progress-track: rgba(255, 255, 255, 0.15);
+  --progress-fill: rgba(129, 140, 248, 0.7);
+  --fab-bg: rgba(255, 255, 255, 0.12);
+  --fab-border: rgba(255, 255, 255, 0.18);
+  --fab-color: #ffffff;
 }
 
 /* Explicit theme classes on <html> (default is dark) */
@@ -37,6 +42,11 @@
   --cta-bg: #111827; /* gray-900 */
   --cta-bg-hover: #1f2937; /* gray-800 */
   --cta-text: #ffffff;
+  --progress-track: rgba(17, 24, 39, 0.12);
+  --progress-fill: rgba(99, 102, 241, 0.65);
+  --fab-bg: rgba(17, 24, 39, 0.92);
+  --fab-border: rgba(17, 24, 39, 0.92);
+  --fab-color: #ffffff;
 }
 
 .theme-dark {
@@ -123,6 +133,58 @@ body {
   color: var(--muted);
 }
 
+.muted-strong {
+  color: color-mix(in oklab, var(--foreground) 78%, transparent);
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+/* Tag chip */
+.tag {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.theme-light .tag {
+  background: rgba(17, 24, 39, 0.06);
+  color: rgba(17, 24, 39, 0.8);
+  border: 1px solid rgba(17, 24, 39, 0.12);
+}
+
+/* Footer readability */
+footer .muted {
+  color: color-mix(in oklab, var(--foreground) 55%, transparent);
+}
+footer a {
+  color: color-mix(in oklab, var(--foreground) 70%, transparent);
+}
+footer a:hover {
+  color: var(--foreground);
+}
+
+/* Progress bars */
+.progress-track {
+  background: var(--progress-track);
+}
+.progress-fill {
+  background: var(--progress-fill);
+}
+
+/* Floating theme button */
+.toggle-fab {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  background: var(--fab-bg);
+  color: var(--fab-color);
+  border: 1px solid var(--fab-border);
+  box-shadow: var(--shadow-soft);
+}
+
 /* CTA button that adapts to theme */
 .cta-btn {
   background: var(--cta-bg);
@@ -135,12 +197,13 @@ body {
 /* Navbar link color that adapts */
 .nav-link {
   color: var(--muted);
+  transition: color 0.15s ease;
 }
-.theme-dark .nav-link:hover {
-  color: #ffffff;
+.nav-link:hover {
+  color: var(--foreground);
 }
 .theme-light .nav-link:hover {
-  color: #111827;
+  color: #6366f1;
 }
 
 /* Light theme background glow variant */
