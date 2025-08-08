@@ -1,5 +1,7 @@
 //
 
+import ThemeToggle from "@/components/ThemeToggle";
+
 function Navbar() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-sm/30">
@@ -8,7 +10,7 @@ function Navbar() {
           <div className="text-[15px] font-semibold tracking-tight">
             Neuron Agency
           </div>
-          <div className="hidden md:flex gap-6 text-sm text-slate-300">
+          <div className="hidden md:flex gap-6 text-sm nav-link">
             <a href="#about" className="hover:text-white">
               Sobre Nosotros
             </a>
@@ -21,7 +23,7 @@ function Navbar() {
           </div>
           <a
             href="#contacto"
-            className="pill bg-white/10 hover:bg-white/15 text-white text-sm px-4 py-2 transition-colors"
+            className="pill cta-btn text-sm px-4 py-2 transition-colors"
           >
             Quiero una propuesta
           </a>
@@ -49,7 +51,7 @@ function Hero() {
         <div className="mt-8">
           <a
             href="#contacto"
-            className="pill inline-flex items-center justify-center bg-indigo-500 hover:bg-indigo-400 text-white font-medium px-6 py-3 shadow-elevated"
+            className="pill inline-flex items-center justify-center cta-btn font-medium px-6 py-3 shadow-elevated"
           >
             Obten una propuesta gratuita
           </a>
@@ -286,6 +288,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
+      <FloatingThemeButton />
       <Hero />
       <VideoSection />
       <Benefits />
@@ -293,6 +296,14 @@ export default function Home() {
       <ClientsTestimonial />
       <CaseStudy />
       <Footer />
+    </div>
+  );
+}
+
+function FloatingThemeButton() {
+  return (
+    <div className="fixed bottom-6 right-6 z-50">
+      <ThemeToggle />
     </div>
   );
 }
