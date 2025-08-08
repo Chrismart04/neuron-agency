@@ -61,7 +61,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* If user didn't set theme manually, respect system preference */
 @media (prefers-color-scheme: light) {
   :root:not(.theme-dark) {
     --background: #f7f8fc;
@@ -75,6 +74,9 @@ body {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
     Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial,
     "Apple Color Emoji", "Segoe UI Emoji";
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
 }
 
 /* Utilities */
@@ -96,20 +98,34 @@ body {
 }
 
 .hero-gradient {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-gradient::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -20vh;
+  width: 200vw;
+  height: 200vh;
+  z-index: -1;
+  pointer-events: none;
   background: radial-gradient(
-      1000px 600px at 50% -10%,
+      70vw 45vh at 50% -5vh,
       rgba(129, 140, 248, 0.18),
       transparent 60%
     ),
     radial-gradient(
-      1200px 800px at 50% 20%,
+      85vw 60vh at 50% 20vh,
       rgba(236, 72, 153, 0.08),
-      transparent 50%
+      transparent 55%
     ),
     radial-gradient(
-      1400px 900px at 50% 100%,
+      100vw 70vh at 50% 95vh,
       rgba(59, 130, 246, 0.12),
-      transparent 55%
+      transparent 60%
     );
 }
 
@@ -207,20 +223,66 @@ footer a:hover {
 }
 
 /* Light theme background glow variant */
-.theme-light .hero-gradient {
+.theme-light .hero-gradient::before {
   background: radial-gradient(
-      1000px 600px at 50% -10%,
+      70vw 45vh at 50% -5vh,
       rgba(129, 140, 248, 0.12),
       transparent 60%
     ),
     radial-gradient(
-      1200px 800px at 50% 20%,
+      85vw 60vh at 50% 20vh,
       rgba(236, 72, 153, 0.06),
-      transparent 50%
+      transparent 55%
     ),
     radial-gradient(
-      1400px 900px at 50% 100%,
+      100vw 70vh at 50% 95vh,
       rgba(59, 130, 246, 0.08),
-      transparent 55%
+      transparent 60%
+    );
+}
+
+/* Global, subtle page-wide glow so the transition to dark feels natural */
+body::before {
+  content: "";
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -30vh;
+  width: 220vw;
+  height: 220vh;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(
+      80vw 55vh at 50% -10vh,
+      rgba(129, 140, 248, 0.1),
+      transparent 70%
+    ),
+    radial-gradient(
+      100vw 70vh at 50% 25vh,
+      rgba(236, 72, 153, 0.05),
+      transparent 65%
+    ),
+    radial-gradient(
+      120vw 85vh at 50% 120vh,
+      rgba(59, 130, 246, 0.08),
+      transparent 70%
+    );
+}
+
+.theme-light body::before {
+  background: radial-gradient(
+      80vw 55vh at 50% -10vh,
+      rgba(129, 140, 248, 0.08),
+      transparent 70%
+    ),
+    radial-gradient(
+      100vw 70vh at 50% 25vh,
+      rgba(236, 72, 153, 0.04),
+      transparent 65%
+    ),
+    radial-gradient(
+      120vw 85vh at 50% 120vh,
+      rgba(59, 130, 246, 0.06),
+      transparent 70%
     );
 }
